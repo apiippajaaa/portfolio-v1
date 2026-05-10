@@ -1,0 +1,208 @@
+{
+  "code": [
+    {
+      "title": "SkinyLabs — Digital Asset Marketplace",
+      "slug": "skinylabs-marketplace",
+      "isCore": true,
+      "description": "Marketplace aset digital modern dengan sistem transaksi real-time, pembayaran terintegrasi Midtrans, dan arsitektur scalable untuk mendukung pertumbuhan pengguna.",
+      "heroImage": "/images/projects/skinylabs/hero.webp",
+      "images": [
+        "/images/projects/skinylabs/1.webp",
+        "/images/projects/skinylabs/2.webp",
+        "/images/projects/skinylabs/3.webp",
+        "/images/projects/skinylabs/4.webp",
+        "/images/projects/skinylabs/5.webp",
+        "/images/projects/skinylabs/6.webp",
+        "/images/projects/skinylabs/7.webp",
+        "/images/projects/skinylabs/8.webp",
+        "/images/projects/skinylabs/9.webp",
+        "/images/projects/skinylabs/10.webp",
+        "/images/projects/skinylabs/11.webp"
+      ],
+      "stack": ["Laravel", "React", "TypeScript", "Tailwind CSS", "Midtrans", "MySQL"]
+    },
+    {
+      "title": "Hoksy — Realtime Hockey Game",
+      "slug": "hoksy-game",
+      "isCore": true,
+      "description": "Game multiplayer realtime berbasis web dengan sinkronisasi data cepat, gameplay kompetitif, dan optimasi performa untuk pengalaman yang smooth.",
+      "heroImage": "/images/project/hoksy.webp",
+      "images": [],
+      "stack": ["Next.js", "TypeScript", "CSS"]
+    },
+    {
+      "title": "Repuku — Healthcare Digital System",
+      "slug": "repuku-healthcare",
+      "description": "Sistem digital layanan kesehatan untuk mengelola data pasien dan operasional dengan alur kerja yang efisien dan terstruktur.",
+      "heroImage": "/images/projects/repuku/hero.webp",
+      "images": [
+        "/images/projects/repuku/1.webp",
+        "/images/projects/repuku/2.webp",
+        "/images/projects/repuku/3.webp",
+        "/images/projects/repuku/4.webp",
+        "/images/projects/repuku/5.webp",
+        "/images/projects/repuku/6.webp",
+        "/images/projects/repuku/7.webp",
+        "/images/projects/repuku/8.webp",
+        "/images/projects/repuku/9.webp",
+        "/images/projects/repuku/10.webp",
+        "/images/projects/repuku/11.webp"
+      ],
+      "stack": ["Laravel", "Tailwind CSS", "Alpine JS"]
+    },
+    {
+      "title": "KakaTours — Smart Travel Booking Platform",
+      "slug": "kakatours-booking",
+      "description": "Platform booking travel dengan manajemen paket dinamis dan alur pemesanan yang simpel dari eksplorasi hingga checkout.",
+      "heroImage": "/images/projects/kakatours/hero.webp",
+     "images": [
+        "/images/projects/kakatours/1.webp",
+        "/images/projects/kakatours/2.webp",
+        "/images/projects/kakatours/3.webp",
+        "/images/projects/kakatours/4.webp",
+        "/images/projects/kakatours/5.webp",
+        "/images/projects/kakatours/6.webp",
+        "/images/projects/kakatours/7.webp",
+        "/images/projects/kakatours/8.webp",
+        "/images/projects/kakatours/9.webp",
+        "/images/projects/kakatours/10.webp",
+        "/images/projects/kakatours/11.webp"
+      ],
+      "stack": ["Laravel", "Tailwind CSS", "Alpine JS"]
+    },
+    {
+      "title": "YoRental — Car Rental Management System",
+      "slug": "yorental-system",
+      "description": "Sistem rental mobil end-to-end untuk mengelola armada, reservasi, dan transaksi dalam satu dashboard terintegrasi.",
+      "heroImage": "/images/projects/yorental/hero.webp",
+      "images": [
+        "/images/projects/yorental/1.webp",
+        "/images/projects/yorental/2.webp",
+        "/images/projects/yorental/3.webp",
+        "/images/projects/yorental/4.webp",
+        "/images/projects/yorental/5.webp",
+        "/images/projects/yorental/6.webp",
+        "/images/projects/yorental/7.webp",
+        "/images/projects/yorental/8.webp",
+        "/images/projects/yorental/9.webp",
+        "/images/projects/yorental/10.webp",
+        "/images/projects/yorental/11.webp"
+      ],
+      "stack": ["Laravel", "Tailwind CSS", "Alpine JS"]
+    },
+    {
+      "title": "Rest n Roll — API Testing Playground",
+      "slug": "rest-n-roll",
+      "description": "Tool testing API dengan interface clean, respons cepat, dan pengalaman eksplorasi endpoint yang efisien untuk developer.",
+      "heroImage": "/images/project/restnroll.webp",
+      "images": [],
+      "stack": ["Next.js", "Tailwind CSS"]
+    },
+    {
+      "title": "BW Food — Company Profile Website",
+      "slug": "bw-food",
+      "description": "Website perusahaan dengan performa tinggi dan tampilan modern untuk menyampaikan brand dan informasi bisnis secara profesional.",
+      "heroImage": "/images/project/bwfood.webp",
+      "images": [],
+      "stack": ["Next.js", "TypeScript", "MySQL", "Tailwind CSS"]
+    },
+    {
+      "title": "Portfolio V1 — Personal Website",
+      "slug": "portfolio-v1",
+      "description": "Website portfolio personal dengan animasi halus, performa optimal, dan integrasi AI untuk pengalaman interaktif.",
+      "heroImage": "/images/project/portfolio.webp",
+      "images": [],
+      "stack": ["Next.js", "Tailwind CSS", "TypeScript", "GROQ AI"]
+    },
+    {
+      "title": "Realtime Chat App — Lightweight Messaging System",
+      "slug": "realtime-chat-php",
+      "description": "Aplikasi chat realtime ringan dengan komunikasi cepat dan fokus pada pengalaman messaging yang responsif.",
+      "heroImage": "/images/project/chat.webp",
+      "images": [],
+      "stack": ["PHP", "CSS", "JavaScript"]
+    },
+    {
+      "title": "MyFinance — Personal Finance Tracker",
+      "slug": "my-finance",
+      "description": "Aplikasi sederhana untuk mencatat pemasukan dan pengeluaran dengan tampilan yang clean dan mudah digunakan.",
+      "heroImage": "/images/project/myfinance.webp",
+      "images": [],
+      "stack": ["Laravel", "Tailwind CSS", "Alpine JS"]
+    },
+    {
+      "title": "Hippie Factory — Creative Landing Page",
+      "slug": "hippie-factory",
+      "description": "Landing page dengan pendekatan visual kuat dan animasi ringan untuk meningkatkan daya tarik brand.",
+      "heroImage": "/images/project/hippie.webp",
+      "images": [],
+      "stack": ["Next.js", "TypeScript", "Tailwind CSS"]
+    },
+    {
+      "title": "Wedding Invitation — Digital Invitation Experience",
+      "slug": "wedding-invitation",
+      "description": "Website undangan digital dengan berbagai konsep desain dan personalisasi untuk kebutuhan event.",
+      "heroImage": "/images/project/wedding.webp",
+      "images": [],
+      "stack": ["HTML", "CSS", "JavaScript"]
+    },
+    {
+      "title": "Flappy Bird — Web Game Remake",
+      "slug": "flappy-bird",
+      "description": "Rekreasi game klasik berbasis web dengan mekanik sederhana dan fokus pada performa ringan.",
+      "heroImage": "/images/project/flappy.webp",
+      "images": [],
+      "stack": ["Next.js", "TypeScript", "CSS"]
+    }
+  ],
+
+  "design": [
+    {
+      "title": "MyFinance -",
+      "slug": "fintech-mobile-ui",
+      "isCore": true,
+      "heroImage": "https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1200&auto=format&fit=crop",
+      "images": [],
+      "stack": ["Figma", "UI/UX"]
+    },
+    {
+      "title": "BW FOOD - Bussiness Website",
+      "slug": "analytics-dashboard",
+      "heroImage": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1200&auto=format&fit=crop",
+      "images": [],
+      "stack": ["Figma"]
+    },
+    {
+      "title": "Landing Page Concept",
+      "slug": "landing-page-concept",
+      "heroImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
+      "images": [],
+      "stack": ["Figma"]
+    }
+  ],
+
+  "video": [
+    {
+      "title": "Cinematic Product Video",
+      "slug": "cinematic-product-video",
+      "isCore": true,
+      "heroImage": "https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=1200&auto=format&fit=crop",
+      "videoUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
+      "stack": ["After Effects", "Premiere Pro"]
+    },
+    {
+      "title": "Brand Motion Intro",
+      "slug": "brand-motion-intro",
+      "heroImage": "https://images.unsplash.com/photo-1492724441997-5dc865305da7?q=80&w=1200&auto=format&fit=crop",
+      "videoUrl": "https://www.youtube.com/embed/LXb3EKWsInQ",
+      "stack": ["After Effects"]
+    },
+    {
+      "title": "Creative Reel",
+      "slug": "creative-reel",
+      "heroImage": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
+      "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "stack": ["Premiere Pro"]
+    }
+  ]
+}
