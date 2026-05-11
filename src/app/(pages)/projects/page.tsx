@@ -36,21 +36,22 @@ function SectionHeader({
           gap-2
           rounded-full
           border
-          border-yellow-400/20
-          bg-yellow-400/10
+          border-white/15
+          bg-white/8
           px-4
           py-2
-          backdrop-blur-xl
+          shadow-[0_0_30px_rgba(255,255,255,0.04)]
+          backdrop-blur-2xl
         "
       >
-        <div className="text-yellow-300">{icon}</div>
+        <div className="text-yellow-400">{icon}</div>
 
         <span
           className="
             text-[11px]
             uppercase
             tracking-[0.22em]
-            text-yellow-100/70
+            text-white/80
           "
         >
           Selected Works
@@ -74,7 +75,7 @@ function SectionHeader({
           mt-4
           text-sm
           leading-relaxed
-          text-white/50
+          text-white/55
           md:text-[15px]
         "
       >
@@ -99,18 +100,15 @@ function CleanCard({ item, href }: { item: Project; href: string }) {
       <Link href={href} className="group block">
         {/* IMAGE */}
         <div className="relative">
-          {/* YELLOW GLOW */}
+          {/* ROYAL BLUE GLOW */}
           <div
             className="
               absolute
               -inset-2
               rounded-[34px]
-              bg-yellow-400/20
-              blur-2xl
-              opacity-0
-              transition-opacity
-              duration-500
-              group-hover:opacity-100
+              bg-blue-600/25
+              blur-3xl
+              opacity-100
             "
           />
 
@@ -121,6 +119,8 @@ function CleanCard({ item, href }: { item: Project; href: string }) {
               rounded-[32px]
               border
               border-white/10
+              bg-white/[0.03]
+              backdrop-blur-2xl
             "
           >
             <div className="relative aspect-[16/11] overflow-hidden">
@@ -142,8 +142,8 @@ function CleanCard({ item, href }: { item: Project; href: string }) {
                   absolute
                   inset-0
                   bg-gradient-to-t
-                  from-black/30
-                  via-transparent
+                  from-[#020617]/80
+                  via-[#020617]/10
                   to-transparent
                 "
               />
@@ -161,15 +161,15 @@ function CleanCard({ item, href }: { item: Project; href: string }) {
                   justify-center
                   rounded-full
                   border
-                  border-yellow-400/20
-                  bg-yellow-400/10
-                  text-yellow-100
+                  border-yellow-400/30
+                  bg-yellow-400
+                  text-[#0A0F1F]
+                  shadow-[0_0_30px_rgba(250,204,21,0.45)]
                   backdrop-blur-xl
                   transition-all
                   duration-300
                   group-hover:rotate-45
-                  group-hover:bg-yellow-400
-                  group-hover:text-black
+                  group-hover:scale-110
                 "
               >
                 <ArrowRight size={16} />
@@ -217,14 +217,20 @@ function CleanCard({ item, href }: { item: Project; href: string }) {
                 className="
                   rounded-full
                   border
-                  border-yellow-400/15
-                  bg-yellow-400/10
+                  border-white/15
+                  bg-white/8
                   px-3
                   py-1.5
                   text-[11px]
                   font-medium
-                  text-yellow-100/80
+                  text-white/90
+                  shadow-[0_0_20px_rgba(255,255,255,0.04)]
                   backdrop-blur-xl
+                  transition-all
+                  duration-300
+                  hover:border-yellow-400/40
+                  hover:bg-blue-600/20
+                  hover:text-yellow-300
                 "
               >
                 {tech}
@@ -258,18 +264,15 @@ function DesignGrid({ projects }: { projects: Project[] }) {
         >
           <Link href={`/projects/design/${item.slug}`}>
             <div className="group relative">
-              {/* GLOW */}
+              {/* ROYAL BLUE GLOW */}
               <div
                 className="
                   absolute
                   -inset-2
                   rounded-[34px]
-                  bg-yellow-400/20
-                  blur-2xl
-                  opacity-0
-                  transition-opacity
-                  duration-500
-                  group-hover:opacity-100
+                  bg-blue-600/20
+                  blur-3xl
+                  opacity-100
                 "
               />
 
@@ -278,6 +281,9 @@ function DesignGrid({ projects }: { projects: Project[] }) {
                   relative
                   overflow-hidden
                   rounded-[30px]
+                  border
+                  border-white/10
+                  bg-white/[0.03]
                 "
               >
                 <div
@@ -309,10 +315,10 @@ function DesignGrid({ projects }: { projects: Project[] }) {
                     className="
                       absolute
                       inset-0
-                      bg-black/0
-                      transition-all
-                      duration-500
-                      group-hover:bg-black/10
+                      bg-gradient-to-t
+                      from-[#020617]/70
+                      via-transparent
+                      to-transparent
                     "
                   />
 
@@ -329,16 +335,14 @@ function DesignGrid({ projects }: { projects: Project[] }) {
                       justify-center
                       rounded-full
                       border
-                      border-yellow-400/20
-                      bg-yellow-400/10
-                      text-yellow-100
-                      opacity-0
+                      border-yellow-400/30
+                      bg-yellow-400
+                      text-[#0A0F1F]
+                      shadow-[0_0_30px_rgba(250,204,21,0.45)]
                       backdrop-blur-xl
                       transition-all
                       duration-500
-                      group-hover:opacity-100
-                      group-hover:bg-yellow-400
-                      group-hover:text-black
+                      group-hover:scale-110
                     "
                   >
                     <ArrowRight size={15} className="rotate-[-45deg]" />
@@ -363,6 +367,37 @@ export default function ProjectsPage() {
       <Background />
 
       <main className="relative overflow-hidden px-5 pb-32 pt-24 md:px-10">
+        {/* ROYAL BLUE AMBIENT GLOW */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            left-1/2
+            top-0
+            h-[720px]
+            w-[720px]
+            -translate-x-1/2
+            rounded-full
+            bg-blue-700/20
+            blur-[150px]
+          "
+        />
+
+        {/* EXTRA SIDE LIGHT */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            right-0
+            top-1/3
+            h-[400px]
+            w-[400px]
+            rounded-full
+            bg-blue-500/10
+            blur-[120px]
+          "
+        />
+
         <div className="mx-auto max-w-7xl">
           {/* HERO */}
           <section className="mb-28 md:mb-36">
@@ -372,26 +407,30 @@ export default function ProjectsPage() {
               transition={{ duration: 0.7 }}
               className="max-w-5xl"
             >
+              {/* CAPSULE */}
               <div
                 className="
                   inline-flex
                   items-center
                   rounded-full
                   border
-                  border-yellow-400/20
-                  bg-yellow-400/10
+                  border-white/15
+                  bg-white/8
                   px-4
                   py-2
                   text-[11px]
                   uppercase
                   tracking-[0.24em]
-                  text-yellow-100/70
-                  backdrop-blur-xl
+                  text-white/80
+                  shadow-[0_0_30px_rgba(255,255,255,0.04)]
+                  backdrop-blur-2xl
                 "
               >
+                <span className="mr-2 h-2 w-2 rounded-full bg-yellow-400 shadow-[0_0_14px_rgba(250,204,21,0.9)]" />
                 Portfolio Collection
               </div>
 
+              {/* TITLE */}
               <h1
                 className="
                   mt-8
@@ -411,13 +450,14 @@ export default function ProjectsPage() {
                 with clarity.
               </h1>
 
+              {/* DESCRIPTION */}
               <p
                 className="
                   mt-8
                   max-w-2xl
                   text-base
                   leading-relaxed
-                  text-white/50
+                  text-white/55
                   md:text-lg
                 "
               >
