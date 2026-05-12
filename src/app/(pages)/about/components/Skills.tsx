@@ -2,7 +2,9 @@
 
 import skillsData from "@/data/skills.json";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
+
+/* ================= TYPES ================= */
 
 type Skill = {
   name: string;
@@ -14,81 +16,59 @@ type SkillCategory = {
   skills: Skill[];
 };
 
+/* ================= CONSTANTS ================= */
+
+const WRAPPER_SELECTOR = "[data-wrapper]";
+const CARD_SELECTOR = "[data-card]";
+const MIN_PADDING = 16;
+
+/* ================= HELPERS ================= */
+
+const getElements = <T extends Element>(
+  selector: string,
+  parent: ParentNode = document
+) => Array.from(parent.querySelectorAll(selector)) as T[];
+
+/* ================= COMPONENT ================= */
+
 export default function Skills() {
-  const categories = skillsData as SkillCategory[];
+  const categories = useMemo(() => skillsData as SkillCategory[], []);
 
   const mobileRef = useRef<HTMLDivElement>(null);
-  const desktopRef = useRef<HTMLDivElement>(null);
 
-  const [active, setActive] = useState(0);
-  const [padding, setPadding] = useState(0);
-  const [cardHeight, setCardHeight] = useState<number>(0);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [carouselPadding, setCarouselPadding] = useState(MIN_PADDING);
 
-  // ================= HEIGHT SYNC =================
+  /* ================= MOBILE PADDING ================= */
+
   useEffect(() => {
-    const calculateHeight = () => {
-      const cards = document.querySelectorAll(
-        "[data-card]"
-      ) as NodeListOf<HTMLElement>;
+    const updatePadding = () => {
+      const container = mobileRef.current;
+      if (!container) return;
 
-      let maxHeight = 0;
+      const firstCard = container.querySelector<HTMLElement>(CARD_SELECTOR);
 
-      cards.forEach((card) => {
-        card.style.minHeight = "0px";
+      if (!firstCard) return;
 
-        const height = card.scrollHeight;
+      const centeredPadding =
+        (container.clientWidth - firstCard.clientWidth) / 2;
 
-        if (height > maxHeight) {
-          maxHeight = height;
-        }
-      });
-
-      setCardHeight(maxHeight);
+      setCarouselPadding(Math.max(MIN_PADDING, centeredPadding));
     };
 
-    calculateHeight();
+    updatePadding();
 
-    const resizeObserver = new ResizeObserver(() => {
-      calculateHeight();
-    });
-
-    const cards = document.querySelectorAll("[data-card]");
-
-    cards.forEach((card) => resizeObserver.observe(card));
-
-    window.addEventListener("resize", calculateHeight);
+    window.addEventListener("resize", updatePadding);
 
     return () => {
-      resizeObserver.disconnect();
-      window.removeEventListener("resize", calculateHeight);
+      window.removeEventListener("resize", updatePadding);
     };
-  }, [categories]);
-
-  // ================= PADDING =================
-  useEffect(() => {
-    const calcPadding = () => {
-      if (!mobileRef.current) return;
-
-      const container = mobileRef.current;
-      const card = container.querySelector("[data-card]") as HTMLElement;
-
-      if (!card) return;
-
-      const value = (container.clientWidth - card.clientWidth) / 2;
-      setPadding(Math.max(16, value));
-    };
-
-    calcPadding();
-
-    window.addEventListener("resize", calcPadding);
-
-    return () => window.removeEventListener("resize", calcPadding);
   }, []);
 
-  // ================= ACTIVE DETECTION =================
+  /* ================= ACTIVE DETECTION ================= */
+
   useEffect(() => {
     const container = mobileRef.current;
-
     if (!container) return;
 
     let ticking = false;
@@ -99,26 +79,26 @@ export default function Skills() {
       ticking = true;
 
       requestAnimationFrame(() => {
-        const cards = Array.from(
-          container.querySelectorAll("[data-wrapper]")
-        ) as HTMLElement[];
+        const cards = getElements<HTMLElement>(WRAPPER_SELECTOR, container);
 
-        const center = container.scrollLeft + container.clientWidth / 2;
+        const viewportCenter = container.scrollLeft + container.clientWidth / 2;
 
-        let closest = 0;
-        let closestDistance = Infinity;
+        let nearestIndex = 0;
+        let nearestDistance = Infinity;
 
         cards.forEach((card, index) => {
           const cardCenter = card.offsetLeft + card.clientWidth / 2;
-          const distance = Math.abs(center - cardCenter);
 
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closest = index;
+          const distance = Math.abs(viewportCenter - cardCenter);
+
+          if (distance < nearestDistance) {
+            nearestDistance = distance;
+            nearestIndex = index;
           }
         });
 
-        setActive(closest);
+        setActiveIndex(nearestIndex);
+
         ticking = false;
       });
     };
@@ -132,139 +112,110 @@ export default function Skills() {
     };
   }, []);
 
-  // ================= SCROLL =================
-  const scrollToIndex = (index: number) => {
-    if (!mobileRef.current) return;
+  /* ================= NAVIGATION ================= */
 
+  const scrollToIndex = (index: number) => {
     const container = mobileRef.current;
 
-    const cards = container.querySelectorAll(
-      "[data-wrapper]"
-    ) as NodeListOf<HTMLElement>;
+    if (!container) return;
 
-    const el = cards[index];
+    const cards = getElements<HTMLElement>(WRAPPER_SELECTOR, container);
 
-    if (!el) return;
+    const target = cards[index];
 
-    const offset =
-      el.offsetLeft - container.clientWidth / 2 + el.clientWidth / 2;
+    if (!target) return;
+
+    const left =
+      target.offsetLeft - container.clientWidth / 2 + target.clientWidth / 2;
 
     container.scrollTo({
-      left: offset,
+      left,
       behavior: "smooth",
     });
   };
 
-  const next = () => {
-    if (active >= categories.length - 1) return;
-    scrollToIndex(active + 1);
+  const handlePrev = () => {
+    if (activeIndex <= 0) return;
+
+    scrollToIndex(activeIndex - 1);
   };
 
-  const prev = () => {
-    if (active <= 0) return;
-    scrollToIndex(active - 1);
+  const handleNext = () => {
+    if (activeIndex >= categories.length - 1) return;
+
+    scrollToIndex(activeIndex + 1);
   };
 
-  // ================= CARD =================
-  const Card = ({ cat }: { cat: SkillCategory }) => (
+  /* ================= UI ================= */
+
+  const getNavButtonClass = (disabled: boolean) => `
+    absolute top-1/2 z-20 flex h-11 w-11 -translate-y-1/2
+    items-center justify-center rounded-full border
+    backdrop-blur-xl transition-all duration-300
+    ${
+      disabled
+        ? `
+          cursor-not-allowed
+          border-white/5
+          bg-white/[0.03]
+          text-white/20
+        `
+        : `
+          border-white/10
+          bg-white/[0.08]
+          text-[#F5F5DC]/75
+          active:scale-95
+        `
+    }
+  `;
+
+  const Card = ({
+    category,
+    mobile = false,
+  }: {
+    category: SkillCategory;
+    mobile?: boolean;
+  }) => (
     <div
       data-card
-      style={{
-        minHeight: cardHeight || "auto",
-      }}
-      className="
-        relative
-        flex flex-col
-        h-full
-
-        w-[82vw]
-        max-w-[320px]
-
-        overflow-hidden
-        rounded-[30px]
-
-        border border-white/10
-
+      className={`
+        relative flex h-full flex-col overflow-hidden
+        rounded-[30px] border border-white/10
         bg-[linear-gradient(180deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.05)_100%)]
-
-        backdrop-blur-2xl
-        p-5 md:p-6
-      "
+        backdrop-blur-2xl p-5 md:p-6
+        ${mobile ? "w-[82vw] max-w-[320px]" : "w-full"}
+      `}
     >
       {/* GLOW */}
-      <div
-        className="
-          absolute
-          -top-24
-          right-[-20%]
+      <div className="absolute -top-24 right-[-20%] h-52 w-52 rounded-full bg-[#F5F5DC]/10 blur-3xl" />
 
-          h-52
-          w-52
+      {/* TOP BORDER */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#F5F5DC]/70 to-transparent" />
 
-          rounded-full
-          bg-[#F5F5DC]/10
-          blur-3xl
-        "
-      />
-
-      {/* TOP LIGHT */}
-      <div
-        className="
-          absolute
-          inset-x-0
-          top-0
-          h-px
-
-          bg-gradient-to-r
-          from-transparent
-          via-[#F5F5DC]/70
-          to-transparent
-        "
-      />
-
-      {/* HEADER */}
+      {/* CONTENT */}
       <div className="relative z-10">
-        <h3
-          className="
-            text-xl
-            font-semibold
-            tracking-[-0.03em]
-            text-[#F5F5DC]
-          "
-        >
-          {cat.title}
+        <h3 className="text-xl font-semibold tracking-[-0.03em] text-[#F5F5DC]">
+          {category.title}
         </h3>
 
-        <p
-          className="
-            mt-2
-            text-sm
-            leading-relaxed
-            text-[#F5F5DC]/58
-          "
-        >
-          {cat.description}
+        <p className="mt-2 text-sm leading-relaxed text-[#F5F5DC]/58">
+          {category.description}
         </p>
       </div>
 
       {/* DIVIDER */}
       <div className="relative z-10 my-5 h-px bg-white/10" />
 
-      {/* SKILLS */}
-      <div className="relative z-10 flex flex-wrap content-start gap-2">
-        {cat.skills.map((skill, i) => (
+      {/* CAPSULE AREA */}
+      <div className="relative z-10 flex flex-1 flex-wrap content-start gap-2">
+        {category.skills.map((skill) => (
           <span
-            key={i}
+            key={skill.name}
             className="
-              rounded-full
-              border border-white/10
+              rounded-full border border-white/10
               bg-white/[0.06]
-
               px-3 py-1.5
-
-              text-[11px]
-              text-[#F5F5DC]/75
-
+              text-[11px] text-[#F5F5DC]/75
               transition-colors duration-200
               hover:bg-white/[0.12]
             "
@@ -273,185 +224,109 @@ export default function Skills() {
           </span>
         ))}
       </div>
-
-      {/* AUTO SPACE */}
-      <div className="flex-1" />
     </div>
   );
 
   return (
-    <section className="px-4 py-20 md:py-28">
+    <section className="py-20 md:py-28">
       <div className="mx-auto max-w-6xl">
         {/* HEADER */}
-        <div className="mb-12 text-center md:mb-16">
-          <p
-            className="
-              text-[10px] md:text-xs
-              uppercase
-              tracking-[0.32em]
-              text-[#F5F5DC]/45
-            "
-          >
+        <header className="mb-12 text-center md:mb-16">
+          <p className="text-[10px] uppercase tracking-[0.32em] text-[#F5F5DC]/45 md:text-xs">
             Skills
           </p>
 
-          <h2
-            className="
-              mt-3
-              text-3xl md:text-5xl
-              font-semibold
-              tracking-[-0.04em]
-              text-[#F5F5DC]
-            "
-          >
+          <h2 className="mt-3 text-3xl font-semibold tracking-[-0.04em] text-[#F5F5DC] md:text-5xl">
             My Tech Stack
           </h2>
 
-          <p
-            className="
-              mx-auto
-              mt-3
-              max-w-md
-
-              text-sm md:text-base
-              leading-relaxed
-              text-[#F5F5DC]/55
-            "
-          >
+          <p className="mx-auto mt-3 max-w-md text-sm leading-relaxed text-[#F5F5DC]/55 md:text-base">
             Technologies I use to build scalable and modern digital products.
           </p>
-        </div>
+        </header>
 
         {/* MOBILE */}
         <div className="relative lg:hidden">
           <button
-            onClick={prev}
-            disabled={active === 0}
-            className={`
-              absolute left-0 top-1/2 z-20
-              flex h-11 w-11 -translate-y-1/2 items-center justify-center
-              rounded-full border backdrop-blur-xl
-              transition-all duration-300
-
-              ${
-                active === 0
-                  ? `
-                    cursor-not-allowed
-                    border-white/5
-                    bg-white/[0.03]
-                    text-white/20
-                  `
-                  : `
-                    border-white/10
-                    bg-white/[0.08]
-                    text-[#F5F5DC]/75
-                    active:scale-95
-                  `
-              }
-            `}
+            onClick={handlePrev}
+            disabled={activeIndex === 0}
+            className={`${getNavButtonClass(activeIndex === 0)} left-3`}
           >
             ←
           </button>
 
           <button
-            onClick={next}
-            disabled={active === categories.length - 1}
-            className={`
-              absolute right-0 top-1/2 z-20
-              flex h-11 w-11 -translate-y-1/2 items-center justify-center
-              rounded-full border backdrop-blur-xl
-              transition-all duration-300
-
-              ${
-                active === categories.length - 1
-                  ? `
-                    cursor-not-allowed
-                    border-white/5
-                    bg-white/[0.03]
-                    text-white/20
-                  `
-                  : `
-                    border-white/10
-                    bg-white/[0.08]
-                    text-[#F5F5DC]/75
-                    active:scale-95
-                  `
-              }
-            `}
+            onClick={handleNext}
+            disabled={activeIndex === categories.length - 1}
+            className={`${getNavButtonClass(
+              activeIndex === categories.length - 1
+            )} right-3`}
           >
             →
           </button>
 
-          {/* CAROUSEL */}
           <div
             ref={mobileRef}
             style={{
-              paddingLeft: padding,
-              paddingRight: padding,
+              paddingLeft: carouselPadding,
+              paddingRight: carouselPadding,
             }}
             className="
-              flex gap-5
-              overflow-x-auto overflow-y-hidden
-
-              snap-x snap-mandatory
-              scroll-smooth
-
+              flex gap-5 overflow-x-auto overflow-y-hidden
+              snap-x snap-mandatory scroll-smooth
               scrollbar-hide
               [scrollbar-width:none]
               [-ms-overflow-style:none]
               [-webkit-overflow-scrolling:touch]
             "
           >
-            {categories.map((cat, i) => (
+            {categories.map((category, index) => (
               <div
-                key={i}
+                key={category.title}
                 data-wrapper
-                className="
-                  shrink-0
-                  snap-center
-                  pb-2
-                "
+                className="flex shrink-0 snap-center pb-2"
               >
                 <motion.div
+                  className="h-full"
                   animate={{
-                    scale: i === active ? 1 : 0.965,
-                    opacity: i === active ? 1 : 0.5,
+                    scale: index === activeIndex ? 1 : 0.965,
+                    opacity: index === activeIndex ? 1 : 0.5,
                   }}
                   transition={{
                     duration: 0.18,
                     ease: "easeOut",
                   }}
                 >
-                  <Card cat={cat} />
+                  <Card category={category} mobile />
                 </motion.div>
               </div>
             ))}
           </div>
 
-          {/* INDICATOR */}
           <div className="mt-6 flex justify-center gap-1.5">
-            {categories.map((_, i) => (
+            {categories.map((category, index) => (
               <div
-                key={i}
-                className={`
-                  h-1.5 rounded-full transition-all duration-300
-                  ${i === active ? "w-6 bg-[#F5F5DC]" : "w-1.5 bg-white/20"}
-                `}
+                key={category.title}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  index === activeIndex
+                    ? "w-6 bg-[#F5F5DC]"
+                    : "w-1.5 bg-white/20"
+                }`}
               />
             ))}
           </div>
         </div>
 
         {/* DESKTOP */}
-        <div ref={desktopRef} className="hidden grid-cols-3 gap-6 lg:grid">
-          {categories.map((cat, i) => (
+        <div className="hidden items-stretch gap-6 lg:grid lg:grid-cols-3">
+          {categories.map((category) => (
             <motion.div
-              key={i}
+              key={category.title}
               whileHover={{ y: -6 }}
               transition={{ duration: 0.25 }}
-              className="h-full"
+              className="flex h-full"
             >
-              <Card cat={cat} />
+              <Card category={category} />
             </motion.div>
           ))}
         </div>

@@ -52,58 +52,18 @@ export default function Navbar() {
         <div className="absolute inset-0 rounded-[20px] bg-[#0F52BA] border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.18),inset_0_-6px_12px_rgba(0,0,0,0.22),0_10px_30px_rgba(15,82,186,0.35),0_2px_10px_rgba(0,0,0,0.25)]" />
 
         {/* Top Highlight */}
-        <div
-          className="
-      absolute
-      top-0
-      left-0
-      w-full
-      h-[45%]
-      rounded-t-[20px]
-      bg-gradient-to-b
-      from-white/20
-      to-transparent
-      pointer-events-none
-    "
-        />
+        <div className="absolute top-0 left-0 w-full h-[45%] rounded-t-[20px] bg-gradient-to-b from-white/20 to-transparent pointer-events-none" />
 
         {/* Edge Glow */}
-        <div
-          className="
-      absolute
-      inset-0
-      rounded-[20px]
-      ring-1
-      ring-white/10
-      group-hover:ring-white/20
-      transition
-      duration-500
-    "
-        />
+        <div className="absolute inset-0 rounded-[20px] ring-1 ring-white/10 group-hover:ring-white/20 transition duration-500" />
 
         {/* Inner Glow */}
-        <div
-          className="
-      absolute
-      inset-[1px]
-      rounded-[19px]
-      bg-gradient-to-br
-      from-white/[0.06]
-      via-transparent
-      to-black/10
-    "
-        />
+        <div className="absolute inset-[1px] rounded-[19px] bg-gradient-to-br from-white/[0.06] via-transparent to-black/10" />
 
         {/* Hamburger */}
         <motion.div
           animate={open ? "open" : "closed"}
-          className="
-      relative
-      w-6
-      h-6
-      z-10
-      mx-auto
-    "
+          className="relative w-6 h-6 z-10 mx-auto"
         >
           {/* Top */}
           <motion.span
@@ -145,15 +105,7 @@ export default function Navbar() {
             transition={{
               duration: 0.2,
             }}
-            className="
-        absolute
-        left-0
-        top-1/2
-        w-6
-        h-[2px]
-        rounded-full
-        bg-[#F5F5DC]
-      "
+            className=" absolute left-0 top-1/2 w-6 h-[2px] rounded-full bg-[#F5F5DC]"
           />
 
           {/* Bottom */}
