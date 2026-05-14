@@ -2,9 +2,7 @@
 
 import { SnapPage, Section } from "react-snap-page";
 
-import "react-snap-page/dist/index.css";
-
-import BackgroundEffects from "./components/layouts/background/Background";
+// import "react-snap-page/dist/index.css";
 
 import HomeHeader from "./components/HomeHeader";
 import HomeAbout from "./components/HomeAbout";

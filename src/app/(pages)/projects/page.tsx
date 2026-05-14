@@ -42,48 +42,14 @@ export default function ProjectsPage() {
 
       <main className="relative overflow-hidden">
         {/* AMBIENT GLOW */}
-        <div
-          className="
-            pointer-events-none
+        <div className="pointer-events-none absolute left-1/2 top-0 h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-blue-700/20 blur-[150px]" />
 
-            absolute left-1/2 top-0
-
-            h-[720px] w-[720px]
-
-            -translate-x-1/2
-
-            rounded-full
-
-            bg-blue-700/20
-
-            blur-[150px]
-          "
-        />
-
-        <div
-          className="
-            pointer-events-none
-
-            absolute right-0 top-1/3
-
-            h-[400px] w-[400px]
-
-            rounded-full
-
-            bg-blue-500/10
-
-            blur-[120px]
-          "
-        />
+        <div className="pointer-events-none absolute right-0 top-1/3 h-[400px] w-[400px] rounded-full bg-blue-500/10 blur-[120px]" />
 
         {/* CONTAINER */}
         <section className="mx-auto w-full max-w-6xl">
           {/* HERO */}
-          <section
-            className="
-              relative flex min-h-screen items-center
-            "
-          >
+          <section className="relative flex min-h-screen items-center">
             <ProjectsHero />
           </section>
 
@@ -93,10 +59,7 @@ export default function ProjectsPage() {
             <ProjectSection
               icon="code"
               title="Development"
-              description="
-                Modern platforms, realtime systems,
-                and interactive products.
-              "
+              description="Modern platforms, realtime systems, and interactive products."
               projects={codeProjects.slice(0, 6)}
             />
 
@@ -105,10 +68,7 @@ export default function ProjectsPage() {
               <ProjectSection.Header
                 icon="design"
                 title="Design"
-                description="
-                  Minimal visual explorations
-                  and interface concepts.
-                "
+                description="Minimal visual explorations and interface concepts."
               />
 
               <DesignGrid projects={designProjects} />
@@ -118,10 +78,7 @@ export default function ProjectsPage() {
             <ProjectSection
               icon="video"
               title="Motion & Video"
-              description="
-                Cinematic edits and visual
-                storytelling experiences.
-              "
+              description="Cinematic edits and visual storytelling experiences."
               projects={videoProjects.slice(0, 6)}
             />
           </div>

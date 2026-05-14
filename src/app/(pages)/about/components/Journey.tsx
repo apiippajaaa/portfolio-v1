@@ -148,46 +148,13 @@ function TimelineCard({ item }: TimelineCardProps) {
       "
     >
       {/* TOP LIGHT */}
-      <div
-        className="
-          pointer-events-none
-          absolute inset-x-0 top-0 h-px
-
-          bg-gradient-to-r
-          from-transparent
-          via-[#F5F5DC]/70
-          to-transparent
-        "
-      />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#F5F5DC]/70 to-transparent" />
 
       {/* SOFT GLOW */}
-      <div
-        className="
-          pointer-events-none
-
-          absolute -top-24 right-[-10%]
-
-          h-52 w-52
-
-          rounded-full
-
-          bg-[#F5F5DC]/10
-
-          blur-3xl
-        "
-      />
+      <div className="pointer-events-none absolute -top-24 right-[-10%] h-52 w-52 rounded-full bg-[#F5F5DC]/10 blur-3xl" />
 
       {/* OVERLAY */}
-      <div
-        className="
-          pointer-events-none
-          absolute inset-0
-
-          bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,transparent_100%)]
-
-          opacity-80
-        "
-      />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgba(255,255,255,0.06)_0%,transparent_100%)] opacity-80" />
 
       {/* CONTENT */}
       <div className="relative z-10">
@@ -203,18 +170,7 @@ function TimelineCard({ item }: TimelineCardProps) {
           {item.period}
         </span>
 
-        <h3
-          className="
-            mt-3
-
-            text-lg md:text-[22px]
-            font-semibold
-
-            tracking-[-0.03em]
-
-            text-[#F5F5DC]
-          "
-        >
+        <h3 className="mt-3 text-lg md:text-[22px] font-semibold tracking-[-0.03em] text-[#F5F5DC]">
           {item.role}
         </h3>
 
@@ -277,12 +233,9 @@ function TimelineItem({
       style={{
         willChange: "transform, opacity",
       }}
-      className={`
-        relative flex flex-col
-        items-start md:flex-row md:items-center
-
-        ${isLeft ? "md:justify-start" : "md:justify-end"}
-      `}
+      className={`relative flex flex-col items-start md:flex-row md:items-center ${
+        isLeft ? "md:justify-start" : "md:justify-end"
+      }`}
     >
       {/* CARD */}
       <motion.div

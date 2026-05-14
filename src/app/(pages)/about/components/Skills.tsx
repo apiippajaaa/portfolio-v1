@@ -178,13 +178,9 @@ export default function Skills() {
   }) => (
     <div
       data-card
-      className={`
-        relative flex h-full flex-col overflow-hidden
-        rounded-[30px] border border-white/10
-        bg-[linear-gradient(180deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.05)_100%)]
-        backdrop-blur-2xl p-5 md:p-6
-        ${mobile ? "w-[82vw] max-w-[320px]" : "w-full"}
-      `}
+      className={`relative flex h-full flex-col overflow-hidden rounded-[30px] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.10)_0%,rgba(255,255,255,0.05)_100%)] backdrop-blur-2xl p-5 md:p-6 ${
+        mobile ? "w-[82vw] max-w-[320px]" : "w-full"
+      }`}
     >
       {/* GLOW */}
       <div className="absolute -top-24 right-[-20%] h-52 w-52 rounded-full bg-[#F5F5DC]/10 blur-3xl" />

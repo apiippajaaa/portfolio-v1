@@ -80,16 +80,7 @@ export default function Navbar() {
             transition={{
               duration: 0.35,
             }}
-            className="
-        absolute
-        left-0
-        top-1/2
-        w-6
-        h-[2px]
-        rounded-full
-        bg-[#F5F5DC]
-        shadow-[0_0_10px_rgba(245,245,220,0.35)]
-      "
+            className="absolute left-0 top-1/2 w-6 h-[2px] rounded-full bg-[#F5F5DC] shadow-[0_0_10px_rgba(245,245,220,0.35)]"
           />
 
           {/* Middle */}
@@ -105,7 +96,7 @@ export default function Navbar() {
             transition={{
               duration: 0.2,
             }}
-            className=" absolute left-0 top-1/2 w-6 h-[2px] rounded-full bg-[#F5F5DC]"
+            className="absolute left-0 top-1/2 w-6 h-0.5 rounded-full bg-[#F5F5DC]"
           />
 
           {/* Bottom */}
@@ -123,16 +114,7 @@ export default function Navbar() {
             transition={{
               duration: 0.35,
             }}
-            className="
-        absolute
-        left-0
-        top-1/2
-        w-6
-        h-[2px]
-        rounded-full
-        bg-[#F5F5DC]
-        shadow-[0_0_10px_rgba(245,245,220,0.35)]
-      "
+            className="absolute left-0 top-1/2 w-6 h-[2px] rounded-full bg-[#F5F5DC] shadow-[0_0_10px_rgba(245,245,220,0.35)]"
           />
         </motion.div>
       </motion.button>
@@ -153,51 +135,15 @@ export default function Navbar() {
             transition={{
               duration: 0.35,
             }}
-            className="
-              fixed
-              inset-0
-              z-50
-              bg-[#0F52BA]/95
-              backdrop-blur-3xl
-            "
+            className="fixed inset-0 z-50 bg-[#0F52BA]/95 backdrop-blur-3xl"
           >
             {/* Blur Orbs */}
-            <div
-              className="
-                absolute
-                top-[-10%]
-                right-[-10%]
-                w-[500px]
-                h-[500px]
-                rounded-full
-                bg-white/10
-                blur-3xl
-              "
-            />
+            <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-white/10 blur-3xl" />
 
-            <div
-              className="
-                absolute
-                bottom-[-10%]
-                left-[-10%]
-                w-[500px]
-                h-[500px]
-                rounded-full
-                bg-[#F5F5DC]/10
-                blur-3xl
-              "
-            />
+            <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#F5F5DC]/10 blur-3xl" />
 
             {/* Links */}
-            <div
-              className="
-                relative
-                h-full
-                flex
-                items-center
-                justify-center
-              "
-            >
+            <div className="relative h-full flex items-center justify-center">
               <div className="flex flex-col items-center gap-8">
                 {links.map((item, index) => (
                   <motion.div
@@ -220,15 +166,7 @@ export default function Navbar() {
                     <Link
                       href={item.href}
                       onClick={() => setOpen(false)}
-                      className="
-                        text-[#F5F5DC]
-                        text-5xl
-                        md:text-7xl
-                        font-semibold
-                        tracking-tight
-                        hover:text-yellow-400
-                        transition
-                      "
+                      className="text-[#F5F5DC] text-5xl md:text-7xl font-semibold tracking-tight hover:text-yellow-400 transition"
                     >
                       {item.label}
                     </Link>
