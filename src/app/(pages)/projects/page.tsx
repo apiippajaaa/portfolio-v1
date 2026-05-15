@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import projects from "@/data/projects.json";
 
 import Background from "@/app/components/layouts/background/Background";
@@ -41,11 +43,6 @@ export default function ProjectsPage() {
       <Background />
 
       <main className="relative overflow-hidden">
-        {/* AMBIENT GLOW */}
-        <div className="pointer-events-none absolute left-1/2 top-0 h-[720px] w-[720px] -translate-x-1/2 rounded-full bg-blue-700/20 blur-[150px]" />
-
-        <div className="pointer-events-none absolute right-0 top-1/3 h-[400px] w-[400px] rounded-full bg-blue-500/10 blur-[120px]" />
-
         {/* CONTAINER */}
         <section className="mx-auto w-full max-w-6xl">
           {/* HERO */}
@@ -56,12 +53,29 @@ export default function ProjectsPage() {
           {/* CONTENT */}
           <div className="space-y-32 pb-32">
             {/* DEVELOPMENT */}
-            <ProjectSection
-              icon="code"
-              title="Development"
-              description="Modern platforms, realtime systems, and interactive products."
-              projects={codeProjects.slice(0, 6)}
-            />
+            <section className="space-y-12">
+              <ProjectSection
+                icon="code"
+                title="Development"
+                description="Modern platforms, realtime systems, and interactive products."
+                projects={codeProjects.slice(0, 6).map((item) => ({
+                  ...item,
+                  category: "development",
+                }))}
+              />
+
+              <div className="flex justify-center">
+                <Link
+                  href="/projects/development"
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-yellow-400/40 hover:bg-yellow-400 hover:text-black"
+                >
+                  View All Development
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
+              </div>
+            </section>
 
             {/* DESIGN */}
             <section className="space-y-12">
@@ -72,15 +86,44 @@ export default function ProjectsPage() {
               />
 
               <DesignGrid projects={designProjects} />
+
+              <div className="flex justify-center">
+                <Link
+                  href="/projects/design"
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-yellow-400/40 hover:bg-yellow-400 hover:text-black"
+                >
+                  View All Design
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
+              </div>
             </section>
 
             {/* VIDEO */}
-            <ProjectSection
-              icon="video"
-              title="Motion & Video"
-              description="Cinematic edits and visual storytelling experiences."
-              projects={videoProjects.slice(0, 6)}
-            />
+            <section className="space-y-12">
+              <ProjectSection
+                icon="video"
+                title="Motion & Video"
+                description="Cinematic edits and visual storytelling experiences."
+                projects={videoProjects.slice(0, 6).map((item) => ({
+                  ...item,
+                  category: "video",
+                }))}
+              />
+
+              <div className="flex justify-center">
+                <Link
+                  href="/projects/video"
+                  className="group inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-medium text-white backdrop-blur-md transition-all duration-300 hover:border-yellow-400/40 hover:bg-yellow-400 hover:text-black"
+                >
+                  View All Motion & Video
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </Link>
+              </div>
+            </section>
           </div>
         </section>
       </main>

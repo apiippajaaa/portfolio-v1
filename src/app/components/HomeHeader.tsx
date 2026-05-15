@@ -45,15 +45,7 @@ export default function HomeHeader() {
     <section
       ref={ref}
       id="home"
-      className="
-        min-h-dvh
-        w-full
-        flex
-        items-center
-        justify-center
-        px-6
-        overflow-hidden
-      "
+      className="min-h-dvh w-full flex items-center justify-center px-6 overflow-hidden"
     >
       <motion.div
         variants={container}
@@ -63,13 +55,7 @@ export default function HomeHeader() {
           once: false,
           amount: 0.35,
         }}
-        className="
-          text-center
-          max-w-3xl
-          w-full
-          flex
-          flex-col
-          items-center
+        className="text-center max-w-3xl w-full flex flex-col items-center
         "
       >
         {/* STATUS */}
@@ -83,19 +69,7 @@ export default function HomeHeader() {
               ease: easing,
             },
           }}
-          className="
-            inline-flex
-            items-center
-            gap-2
-            px-4
-            py-1.5
-            rounded-full
-            border
-            border-white/10
-            bg-white/5
-            mb-5
-            backdrop-blur-sm
-          "
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 mb-5 backdrop-blur-sm"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse" />
 
@@ -107,14 +81,7 @@ export default function HomeHeader() {
         {/* NAME */}
         <motion.h1
           variants={reveal}
-          className="
-            text-4xl
-            sm:text-5xl
-            md:text-6xl
-            font-semibold
-            leading-tight
-            tracking-[-0.04em]
-          "
+          className="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight tracking-[-0.04em]"
         >
           NUR AFIF MISBAHUDDIN
         </motion.h1>
@@ -122,12 +89,7 @@ export default function HomeHeader() {
         {/* ROLE */}
         <motion.p
           variants={reveal}
-          className="
-            mt-4
-            text-sm
-            sm:text-base
-            text-[#F5F5DC]/60
-          "
+          className="mt-4 text-sm sm:text-base text-[#F5F5DC]/60"
         >
           Fullstack Developer · Graphic Designer · Video Editor
         </motion.p>

@@ -12,6 +12,7 @@ const nextConfig: NextConfig = {
   },
   reactCompiler: true,
   allowedDevOrigins: ['192.168.1.5'],
+  devIndicators: false
 };
 
 export default nextConfig;

@@ -3,7 +3,6 @@
     {
       "title": "SkinyLabs — Digital Asset Marketplace",
       "slug": "skinylabs-marketplace",
-      "isCore": true,
       "description": "Marketplace aset digital modern dengan sistem transaksi real-time, pembayaran terintegrasi Midtrans, dan arsitektur scalable untuk mendukung pertumbuhan pengguna.",
       "heroImage": "/images/projects/skinylabs/hero.webp",
       "images": [
@@ -24,7 +23,6 @@
     {
       "title": "Hoksy — Realtime Hockey Game",
       "slug": "hoksy-game",
-      "isCore": true,
       "description": "Game multiplayer realtime berbasis web dengan sinkronisasi data cepat, gameplay kompetitif, dan optimasi performa untuk pengalaman yang smooth.",
       "heroImage": "/images/project/hoksy.webp",
       "images": [],
@@ -160,7 +158,6 @@
     {
       "title": "MyFinance -",
       "slug": "fintech-mobile-ui",
-      "isCore": true,
       "heroImage": "https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=1200&auto=format&fit=crop",
       "images": [],
       "stack": ["Figma", "UI/UX"]
@@ -185,7 +182,6 @@
     {
       "title": "Cinematic Product Video",
       "slug": "cinematic-product-video",
-      "isCore": true,
       "heroImage": "https://images.unsplash.com/photo-1542204165-65bf26472b9b?q=80&w=1200&auto=format&fit=crop",
       "videoUrl": "https://www.youtube.com/embed/ysz5S6PUM-U",
       "stack": ["After Effects", "Premiere Pro"]

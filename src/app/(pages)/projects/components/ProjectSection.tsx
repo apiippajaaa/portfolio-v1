@@ -11,6 +11,7 @@ export type Project = {
   description?: string;
   heroImage: string;
   stack: string[];
+  category: "development" | "design" | "video";
 };
 
 type Props = {
@@ -29,7 +30,7 @@ function ProjectSection({ icon, title, description, projects }: Props) {
       <SectionHeader icon={icon} title={title} description={description} />
 
       {/* GRID */}
-      <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3 ">
         {projects.map((project) => (
           <CleanCard key={project.slug} item={project} />
         ))}

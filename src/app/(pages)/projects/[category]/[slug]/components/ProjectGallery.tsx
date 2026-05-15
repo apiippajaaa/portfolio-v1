@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import GalleryCard from "./gallery-card";
+import GalleryCard from "./GalleryCard";
 import FloatingNavButton from "./floating-nav-button";
 
 type Props = {

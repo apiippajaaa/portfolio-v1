@@ -11,6 +11,7 @@ type Project = {
   description?: string;
   heroImage: string;
   stack: string[];
+  category: "development" | "design" | "video";
 };
 
 type Props = {
@@ -25,12 +26,12 @@ export default function CleanCard({ item }: Props) {
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
-      <Link href={`/projects/${item.slug}`} className="group block">
+      <Link
+        href={`/projects/${item.category}/${item.slug}`}
+        className="group block"
+      >
         {/* IMAGE */}
         <div className="relative">
-          {/* GLOW */}
-          <div className="absolute -inset-2 rounded-[34px] bg-blue-600/25 blur-3xl" />
-
           {/* CARD */}
           <div className="relative overflow-hidden rounded-[32px] border border-white/10 bg-white/[0.03] backdrop-blur-2xl">
             <div className="relative aspect-[16/11] overflow-hidden">
@@ -41,13 +42,10 @@ export default function CleanCard({ item }: Props) {
                 className="object-cover transition-transform duration-700 group-hover:scale-[1.04]"
               />
 
-              {/* OVERLAY */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#020617]/80 via-[#020617]/10 to-transparent" />
-
               {/* ICON */}
-              <div className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border border-yellow-400/30 bg-yellow-400 text-[#0A0F1F] shadow-[0_0_30px_rgba(250,204,21,0.45)] transition-all duration-300 group-hover:rotate-45 group-hover:scale-110">
+              {/* <div className="absolute right-4 top-4 flex h-11 w-11 items-center justify-center rounded-full border border-yellow-400/30 bg-yellow-400 text-[#0A0F1F] shadow-[0_0_30px_rgba(250,204,21,0.45)] transition-all duration-300 group-hover:rotate-45 group-hover:scale-110">
                 <ArrowRight size={16} />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
