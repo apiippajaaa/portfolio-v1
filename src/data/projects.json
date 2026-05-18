@@ -90,10 +90,13 @@
     },
     {
       "title": "Rest n Roll — API Testing Playground",
-      "slug": "rest-n-roll",
+      "slug": "restnroll",
       "description": "Tool testing API dengan interface clean, respons cepat, dan pengalaman eksplorasi endpoint yang efisien untuk developer.",
-      "heroImage": "/images/project/restnroll.webp",
-      "images": [],
+      "heroImage": "/images/projects/restnroll/hero.webp",
+ "images": [
+        "/images/projects/restnroll/1.webp",
+        "/images/projects/restnroll/2.webp"
+      ],
       "stack": ["Next.js", "Tailwind CSS"]
     },
     {
