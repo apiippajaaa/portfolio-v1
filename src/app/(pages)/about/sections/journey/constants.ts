@@ -1,0 +1,1 @@
+export const INITIAL_VISIBLE_ITEMS = 4;

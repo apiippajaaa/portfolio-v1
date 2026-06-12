@@ -1,0 +1,44 @@
+import type { Experience } from "@/types/experiences";
+
+export const experiences: Experience[] = [
+  {
+    id: 1,
+    role: "Technical Consultant",
+    company: "Skinylabs Creative",
+    period: "Jun 2025 — Present",
+    description:
+      "Deliver tailored digital solutions while bridging client needs with execution, managing projects, and maintaining long-term partnerships.",
+  },
+  {
+    id: 2,
+    role: "Digital Creative & Web Developer",
+    company: "CV. Bintang Walet",
+    period: "May 2021 — Jun 2025",
+    description:
+      "Built and maintained websites while producing visual content and supporting digital marketing with reliable, high-quality delivery.",
+  },
+  {
+    id: 3,
+    role: "Fullstack Developer & Digital Creator",
+    company: "Freelance",
+    period: "Feb 2021 — May 2021",
+    description:
+      "Developed end-to-end web solutions and creative content, from UI/UX to deployment, tailored to diverse client needs.",
+  },
+  {
+    id: 4,
+    role: "Content Creator",
+    company: "Kulo Klaten",
+    period: "Dec 2020 — Feb 2021",
+    description:
+      "Produced engaging local content, managing social media and storytelling to grow audience reach and engagement.",
+  },
+  {
+    id: 5,
+    role: "Fullstack Developer & Digital Content Specialist",
+    company: "Fenstore Concept",
+    period: "Feb 2020 — Aug 2020",
+    description:
+      "Combined web development and digital content to boost brand visibility, optimize ads, and support online sales growth.",
+  },
+];
