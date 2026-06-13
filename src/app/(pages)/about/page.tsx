@@ -1,11 +1,11 @@
 "use client";
 
-import Philosophy from "./components/Philosophy";
-import GetInTouch from "./components/GetInTouch";
 import Footer from "@/components/layouts/Footer";
-import Skills from "./components/skills/Skills";
-import Journey from "./components/journey/Journey";
-import AboutHeader from "./components/Header";
+import GetInTouch from "./sections/GetInTouch";
+import AboutHeader from "./sections/Header";
+import Journey from "./sections/journey/Journey";
+import Philosophy from "./sections/Philosophy";
+import Skills from "./sections/skills/Skills";
 
 export default function About() {
   return (

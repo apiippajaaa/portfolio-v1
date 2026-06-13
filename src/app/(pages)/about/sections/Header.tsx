@@ -114,7 +114,6 @@ export default function AboutHeader() {
   return (
     <>
       {/* MOBILE */}
-
       <section className="relative left-1/2 flex min-h-screen w-screen -translate-x-1/2 items-center md:hidden">
         <div className="absolute inset-0 -z-10">
           <Image
@@ -145,7 +144,6 @@ export default function AboutHeader() {
       </section>
 
       {/* DESKTOP */}
-
       <motion.section
         variants={container(0.12)}
         initial="hidden"

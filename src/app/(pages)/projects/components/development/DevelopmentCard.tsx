@@ -27,16 +27,12 @@ export default function DevelopmentCard({ project }: Props) {
         className="group block"
       >
         <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/3">
-          <div className="relative aspect-[16/11] overflow-hidden">
+          <div className="relative aspect-16/11 overflow-hidden">
             <Image
               fill
               src={project.cover}
               alt={project.title}
-              sizes="
-                (max-width: 768px) 100vw,
-                (max-width: 1280px) 50vw,
-                33vw
-              "
+              sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
           </div>

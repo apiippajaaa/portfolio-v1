@@ -74,7 +74,7 @@ export const developmentProjects: DevelopmentProject[] = [
 
     slug: "repuku-healthcare",
 
-    featured: false,
+    featured: true,
 
     shortDescription:
       "Healthcare management platform for patient and operational workflows.",
@@ -100,13 +100,45 @@ export const developmentProjects: DevelopmentProject[] = [
   },
 
   {
+    id: "convy",
+
+    title: "CONVY",
+
+    slug: "convy",
+
+    featured: true,
+
+    shortDescription:
+      "Image compression and conversion tool with modern UX.",
+
+    description:
+      "Aplikasi web untuk mengompres dan mengonversi gambar dengan performa cepat serta pengalaman pengguna yang sederhana.",
+
+    cover: developmentImages.convy.cover,
+
+    gallery:
+      developmentImages.convy.gallery,
+
+    stack: [
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "GROQ AI",
+    ],
+
+    role: "Frontend Developer",
+
+    year: 2024,
+  },
+
+  {
     id: "yorental",
 
     title: "YoRental",
 
     slug: "yorental-system",
 
-    featured: false,
+    featured: true,
 
     shortDescription:
       "End-to-end vehicle rental management system.",
@@ -118,6 +150,36 @@ export const developmentProjects: DevelopmentProject[] = [
 
     gallery:
       developmentImages.yorental.gallery,
+
+    stack: [
+      "Laravel",
+      "Tailwind CSS",
+      "Alpine.js",
+    ],
+
+    role: "Full Stack Developer",
+
+    year: 2024,
+  },
+  {
+    id: "meetsy",
+
+    title: "Meetsy",
+
+    slug: "meetsy",
+
+    featured: true,
+
+    shortDescription:
+      "End-to-end vehicle rental management system.",
+
+    description:
+      "Sistem rental mobil end-to-end untuk mengelola armada, reservasi, dan transaksi dalam satu dashboard terintegrasi.",
+
+    cover: developmentImages.meetsy.cover,
+
+    gallery:
+      developmentImages.meetsy.gallery,
 
     stack: [
       "Laravel",
@@ -218,38 +280,6 @@ export const developmentProjects: DevelopmentProject[] = [
       "TypeScript",
       "Tailwind CSS",
       "Framer Motion",
-    ],
-
-    role: "Frontend Developer",
-
-    year: 2024,
-  },
-
-  {
-    id: "convy",
-
-    title: "CONVY",
-
-    slug: "convy",
-
-    featured: false,
-
-    shortDescription:
-      "Image compression and conversion tool with modern UX.",
-
-    description:
-      "Aplikasi web untuk mengompres dan mengonversi gambar dengan performa cepat serta pengalaman pengguna yang sederhana.",
-
-    cover: developmentImages.convy.cover,
-
-    gallery:
-      developmentImages.convy.gallery,
-
-    stack: [
-      "Next.js",
-      "Tailwind CSS",
-      "TypeScript",
-      "GROQ AI",
     ],
 
     role: "Frontend Developer",

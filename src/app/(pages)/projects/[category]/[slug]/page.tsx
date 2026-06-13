@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 
-import { designs, developmentProjects, videos } from "@/data/projects";
+import { developmentProjects, videos } from "@/data/projects";
 
 import DevelopmentDetail from "../../components/development/DevelopmentDetail";
 import VideoDetail from "../../components/video/VideoDetail";

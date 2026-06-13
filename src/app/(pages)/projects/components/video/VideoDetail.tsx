@@ -34,8 +34,8 @@ export default function VideoDetail({ project }: Props) {
             <div className="relative">
               <div className="absolute -left-10 top-10 h-40 w-40 rounded-full bg-[#F5D76E]/15 blur-3xl" />
 
-              <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/[0.03]">
-                <div className="relative aspect-[16/11]">
+              <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/3">
+                <div className="relative aspect-16/11">
                   <Image
                     src={project.cover}
                     alt={project.id}
@@ -62,14 +62,7 @@ export default function VideoDetail({ project }: Props) {
             </h2>
           </div>
 
-          <div
-            className="
-              overflow-hidden rounded-[32px]
-              border border-white/10
-              bg-white/[0.03]
-              backdrop-blur-2xl
-            "
-          >
+          <div className="overflow-hidden rounded-4xl border border-white/10 bg-white/3 backdrop-blur-2xl">
             <div className="aspect-video">
               <iframe
                 src={project.videoUrl}

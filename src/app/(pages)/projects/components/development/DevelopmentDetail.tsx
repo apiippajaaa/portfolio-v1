@@ -22,15 +22,7 @@ export default function DevelopmentDetail({ project }: Props) {
                 {project.stack.map((tech) => (
                   <span
                     key={tech}
-                    className="
-                      rounded-full
-                      border border-white/10
-                      bg-white/[0.04]
-                      px-4 py-2
-                      text-xs font-medium
-                      text-[#F5F5DC]/80
-                      backdrop-blur-xl
-                    "
+                    className="rounded-full border border-white/10 bg-white/4 px-4 py-2 text-xs font-medium text-[#F5F5DC]/80 backdrop-blur-xl"
                   >
                     {tech}
                   </span>

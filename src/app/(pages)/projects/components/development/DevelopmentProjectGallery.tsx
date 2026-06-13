@@ -32,36 +32,16 @@ export default function DevelopmentProjectGallery({ title, images }: Props) {
         {/* header */}
         <div className="mb-12 flex items-end justify-between gap-6">
           <div>
-            <p
-              className="
-                text-[11px] uppercase tracking-[0.28em]
-                text-[#F5D76E]/55
-              "
-            >
+            <p className="text-[11px] uppercase tracking-[0.28em] text-[#F5D76E]/55">
               Gallery
             </p>
 
-            <h2
-              className="
-                mt-3 text-3xl font-semibold
-                tracking-[-0.06em] text-white
-                md:text-5xl
-              "
-            >
+            <h2 className="mt-3 text-3xl font-semibold tracking-[-0.06em] text-white md:text-5xl">
               Project Screens
             </h2>
           </div>
 
-          <div
-            className="
-              hidden md:flex items-center gap-2
-              rounded-full border border-white/10
-              bg-white/[0.03]
-              px-4 py-2 text-sm
-              text-[#F5F5DC]/55
-              backdrop-blur-xl
-            "
-          >
+          <div className="hidden md:flex items-center gap-2 rounded-full border border-white/10 bg-white/3 px-4 py-2 text-sm text-[#F5F5DC]/55 backdrop-blur-xl">
             <span className="h-2 w-2 rounded-full bg-[#F5D76E]" />
             {images.length} Preview
           </div>
@@ -69,13 +49,9 @@ export default function DevelopmentProjectGallery({ title, images }: Props) {
 
         {/* mobile carousel */}
         <div className="relative md:hidden">
-          <div className="overflow-hidden rounded-[32px]">
+          <div className="overflow-hidden rounded-4xl">
             <div
-              className="
-                flex
-                transition-transform duration-500
-                ease-[cubic-bezier(0.22,1,0.36,1)]
-              "
+              className="flex transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{
                 transform: `translateX(-${currentIndex * 100}%)`,
               }}
@@ -119,13 +95,7 @@ export default function DevelopmentProjectGallery({ title, images }: Props) {
         </div>
 
         {/* desktop */}
-        <div
-          className="
-            hidden gap-6
-            md:grid md:grid-cols-2
-            xl:grid-cols-3
-          "
-        >
+        <div className="hidden gap-6 md:grid md:grid-cols-2 xl:grid-cols-3">
           {images.map((image, index) => (
             <DevelopmentGalleryCard
               key={image}

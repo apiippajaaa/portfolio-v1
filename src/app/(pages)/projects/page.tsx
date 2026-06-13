@@ -33,11 +33,7 @@ export default function ProjectsPage() {
         <section className="mx-auto w-full max-w-6xl">
           <section
             id="project"
-            className="
-              relative
-              flex min-h-screen
-              snap-start items-center
-            "
+            className="relative flex min-h-screen snap-start items-center"
           >
             <ProjectHeader />
           </section>

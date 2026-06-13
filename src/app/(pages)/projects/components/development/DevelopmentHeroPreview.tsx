@@ -14,7 +14,7 @@ export default function HeroPreview({ image, title }: Props) {
         <div className="absolute -inset-5 rounded-[40px] border border-white/5 bg-white/2 blur-2xl" />
 
         <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/3 backdrop-blur-2xl">
-          <div className="relative aspect-[16/11]">
+          <div className="relative aspect-16/11">
             <Image
               src={image}
               alt={title}

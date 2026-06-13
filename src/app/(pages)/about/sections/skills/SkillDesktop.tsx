@@ -23,11 +23,9 @@ function SkillItem({ category, index }: SkillItemProps) {
       style={{
         transitionDelay: `${index * 80}ms`,
       }}
-      className={`
-        transition-all duration-700 ease-out
-        ${visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}
-        hover:-translate-y-1.5
-      `}
+      className={`transition-all duration-700 ease-out ${
+        visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
+      } hover:-translate-y-1.5`}
     >
       <SkillCard category={category} />
     </div>

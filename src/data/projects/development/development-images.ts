@@ -119,5 +119,17 @@ export const developmentImages = {
       "https://res.cloudinary.com/dcmmanakq/image/upload/v1781279365/14_auablp.webp",
       "https://res.cloudinary.com/dcmmanakq/image/upload/v1781279366/15_lp3u29.webp"
     ]
+  },
+  "meetsy": {
+    "cover": "https://res.cloudinary.com/dcmmanakq/image/upload/q_auto/f_auto/v1781367290/008_ejabyz.webp",
+    "gallery": [
+      "https://res.cloudinary.com/dcmmanakq/image/upload/q_auto/f_auto/v1781367289/001_q2ajao.webp",
+      "https://res.cloudinary.com/dcmmanakq/image/upload/q_auto/f_auto/v1781367290/002_xrzpnl.webp",
+      "https://res.cloudinary.com/dcmmanakq/image/upload/q_auto/f_auto/v1781367289/003_e4xqha.webp",
+      "https://res.cloudinary.com/dcmmanakq/image/upload/q_auto/f_auto/v1781367289/004_t9wijl.webp",
+      "https://res.cloudinary.com/dcmmanakq/image/upload/q_auto/f_auto/v1781367289/005_nn4mgl.webp",
+      "https://res.cloudinary.com/dcmmanakq/image/upload/q_auto/f_auto/v1781367290/006_kzaxmu.webp",
+      "https://res.cloudinary.com/dcmmanakq/image/upload/q_auto/f_auto/v1781367289/007_fz6pjf.webp"
+    ]
   }
 };
