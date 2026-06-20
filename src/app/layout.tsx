@@ -3,7 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Background from "@/components/layouts/background/Background";
 import Navbar from "@/components/layouts/navbar/Navbar";
-import ChatWidget from "@/components/ai/Chatbox";
+import ChatWithAi from "@/components/ai/ChatWithAi";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,12 +31,12 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
     >
       <body className="overflow-x-hidden">
-        <main>
+        <div className="relative min-h-dvh overflow-x-hidden">
           <Background />
           <Navbar />
-          {children}
-          <ChatWidget />
-        </main>
+          <main>{children}</main>
+        </div>
+        <ChatWithAi />
       </body>
     </html>
   );
