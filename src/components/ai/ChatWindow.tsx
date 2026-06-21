@@ -45,14 +45,11 @@ function Bubble({ message }: { message: Message }) {
       className={`flex ${isUser ? "justify-end" : "justify-start"}`}
     >
       <div
-        className={`
-          max-w-[82%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed
-          ${
-            isUser
-              ? "bg-white text-black"
-              : "border border-white/5 bg-zinc-900 text-zinc-100"
-          }
-        `}
+        className={`max-w-[82%] rounded-2xl px-4 py-2.5 text-sm leading-relaxed ${
+          isUser
+            ? "bg-white text-black"
+            : "border border-white/5 bg-zinc-900 text-zinc-100"
+        }`}
       >
         {message.content}
       </div>
@@ -77,13 +74,7 @@ function TriggerButton({
       whileTap={{ scale: 0.97 }}
       onClick={onClick}
       aria-label="Open chat"
-      className="
-        fixed bottom-5 right-5 z-[9999]
-        flex h-13 w-13 items-center justify-center
-        rounded-full border border-white/10 bg-zinc-950 text-white
-        shadow-[0_8px_32px_rgba(0,0,0,0.5)]
-        will-change-transform
-      "
+      className="fixed bottom-5 right-5 z-9999 flex h-13 w-13 items-center justify-center rounded-full border border-white/10 bg-zinc-950 text-white shadow-[0_8px_32px_rgba(0,0,0,0.5)] will-change-transform"
     >
       <MessageCircle size={22} />
     </motion.button>
@@ -113,34 +104,13 @@ export default function ChatWindow({
         exit={{ opacity: 0 }}
         transition={{ duration: 0.18 }}
         onClick={() => setOpen(false)}
-        className="fixed inset-0 z-[9998] bg-black/50 backdrop-blur-sm"
+        className="fixed inset-0 z-9998 bg-black/50 backdrop-blur-sm"
       />
 
       <motion.div
         layoutId={layoutId}
         transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-        className="
-          fixed z-[9999]
-
-          /* Mobile: full screen but safe */
-          inset-x-0 bottom-0 top-0
-          flex flex-col
-          max-h-[100dvh] w-full
-
-          /* Tablet/Desktop: floating panel */
-          sm:inset-auto sm:bottom-5 sm:right-5
-          sm:h-[min(700px,85dvh)]
-          sm:w-[min(420px,calc(100vw-2.5rem))]
-          sm:rounded-3xl
-
-          overflow-hidden
-          bg-zinc-950
-          border-t border-white/10
-          sm:border sm:border-white/10
-
-          shadow-[0_24px_80px_rgba(0,0,0,0.7)]
-          will-change-transform
-        "
+        className="fixed z-9999 inset-x-0 bottom-0 top-0 flex flex-col max-h-dvh w-full sm:inset-auto sm:bottom-5 sm:right-5 sm:h-[min(700px,85dvh)] sm:w-[min(420px,calc(100vw-2.5rem))] sm:rounded-3xl overflow-hidden bg-zinc-950 border-t border-white/10 sm:border sm:border-white/10 shadow-[0_24px_80px_rgba(0,0,0,0.7)] will-change-transform"
       >
         <header className="flex shrink-0 items-center justify-between border-b border-white/10 px-4 py-3">
           <div className="flex items-center gap-3">
