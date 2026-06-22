@@ -13,6 +13,7 @@ import DevelopmentCard from "./components/development/DevelopmentCard";
 import DesignCard from "./components/design/DesignCard";
 import VideoCard from "./components/video/VideoCard";
 import VideoPreviewModal from "./components/video/VideoPreviewModal";
+import HorizontalCarousel from "./components/page/HorizontalCarousel";
 
 const featuredDevelopment = developmentProjects
   .filter((project) => project.featured)
@@ -38,18 +39,30 @@ export default function ProjectsPage() {
             <ProjectHeader />
           </section>
 
-          <div className="space-y-32 pb-32">
+          <div className="space-y-32 pb-32 px-6 py-12">
             {/* Development */}
             <section className="space-y-12">
-              <ProjectSection
+              <ProjectSection.Header
                 icon="code"
                 title="Development"
                 description="Modern platforms, realtime systems, and interactive products."
-              >
+              />
+
+              <div className="md:hidden">
+                <HorizontalCarousel>
+                  {featuredDevelopment.map((project) => (
+                    <div key={project.id} className="w-75 shrink-0 snap-center">
+                      <DevelopmentCard project={project} />
+                    </div>
+                  ))}
+                </HorizontalCarousel>
+              </div>
+
+              <div className="hidden md:grid md:grid-cols-2 xl:grid-cols-3 gap-10">
                 {featuredDevelopment.map((project) => (
                   <DevelopmentCard key={project.id} project={project} />
                 ))}
-              </ProjectSection>
+              </div>
 
               <div className="flex justify-center">
                 <SectionButton href="/projects/development" variant="glass">

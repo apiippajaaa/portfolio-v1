@@ -21,20 +21,71 @@ export default function SectionHeader({
   const Icon = ICONS[icon];
 
   return (
-    <header className="max-w-3xl">
-      <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/8 px-4 py-2 backdrop-blur-2xl">
-        <Icon size={16} className="text-yellow-400" />
+    <header className="mx-auto max-w-3xl text-center md:mx-0 md:text-left">
+      <div
+        className="
+          mb-4
+          inline-flex
+          items-center
+          gap-1.5
+          rounded-full
+          border
+          border-white/10
+          bg-white/5
+          px-3
+          py-1.5
+          backdrop-blur-xl
+          md:mb-5
+          md:gap-2
+          md:px-4
+          md:py-2
+        "
+      >
+        <Icon size={14} className="text-yellow-400 md:h-4 md:w-4" />
 
-        <span className="text-[11px] uppercase tracking-[0.22em] text-white/80">
+        <span
+          className="
+            text-[9px]
+            font-medium
+            uppercase
+            tracking-[0.16em]
+            text-white/70
+            md:text-[11px]
+            md:tracking-[0.22em]
+          "
+        >
           Selected Works
         </span>
       </div>
 
-      <h2 className="text-3xl font-semibold tracking-tighter text-white md:text-5xl">
+      <h2
+        className="
+          text-4xl
+          font-semibold
+          tracking-tight
+          text-white
+          sm:text-5xl
+          md:text-5xl
+          md:tracking-tighter
+        "
+      >
         {title}
       </h2>
 
-      <p className="mt-4 text-sm leading-relaxed text-white/55 md:text-[15px]">
+      <p
+        className="
+          mx-auto
+          mt-4
+          max-w-2xl
+          text-sm
+          leading-relaxed
+          text-white/60
+          sm:text-[15px]
+          md:mx-0
+          md:mt-5
+          md:text-base
+        "
+      >
         {description}
       </p>
     </header>

@@ -4,21 +4,24 @@ import { SectionIcon } from "@/types/projects";
 
 import SectionHeader from "./SectionHeader";
 
-type Props = {
+type ProjectSectionProps = {
   icon: SectionIcon;
-
   title: string;
   description: string;
-
   children: ReactNode;
 };
 
-function ProjectSection({ icon, title, description, children }: Props) {
+export default function ProjectSection({
+  icon,
+  title,
+  description,
+  children,
+}: ProjectSectionProps) {
   return (
-    <section className="space-y-12">
+    <section className="space-y-10 md:space-y-12">
       <SectionHeader icon={icon} title={title} description={description} />
 
-      <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-8 md:gap-10 md:grid-cols-2 xl:grid-cols-3">
         {children}
       </div>
     </section>
@@ -26,5 +29,3 @@ function ProjectSection({ icon, title, description, children }: Props) {
 }
 
 ProjectSection.Header = SectionHeader;
-
-export default ProjectSection;

@@ -26,7 +26,7 @@ export default function ProjectHero({
       </h1>
 
       {description && (
-        <p className="mt-7 max-w-2xl text-sm leading-[2] text-[#F5F5DC]/60 md:text-base">
+        <p className="mt-7 max-w-2xl text-sm leading-loose text-[#F5F5DC]/60 md:text-base">
           {description}
         </p>
       )}
