@@ -17,10 +17,17 @@
     };
 
     export const hoverScale = {
-    scale: 1.04,
-    y: -3,
-    };
+        scale: 1.02,
+        y: -2,
+        transition: {
+          duration: 0.35,
+          ease: EASE,
+        },
+      };
 
     export const tapScale = {
-    scale: 0.97,
-    };
+        scale: 0.98,
+        transition: {
+         duration: 0.15,
+       },
+     };

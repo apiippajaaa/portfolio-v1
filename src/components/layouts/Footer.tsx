@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { Heart } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -18,7 +19,9 @@ export default function Footer() {
           </p>
 
           <div className="flex items-center gap-2">
-            <span>Crafted with intention</span>
+            <span className="text-white flex gap-1 items-center">
+              Crafted with <Heart size={14} fill="#fff" />
+            </span>
             <span className="opacity-60">—</span>
             <span className="text-white">Indonesia</span>
           </div>

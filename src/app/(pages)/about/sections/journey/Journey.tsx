@@ -21,7 +21,7 @@ export default function Journey() {
 
   return (
     <section className="py-20 md:py-28">
-      <div className="mx-auto max-w-6xl px-4 md:px-6">
+      <div className="mx-auto max-w-6xl md:px-6">
         <JourneyHeader />
 
         <JourneyTimeline items={visibleItems} />

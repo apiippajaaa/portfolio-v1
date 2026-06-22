@@ -25,15 +25,14 @@ export function JourneyItem({ item, index }: JourneyItemProps) {
       `}
     >
       <div
-        className={`
-          w-full pl-10 md:w-[45%] md:pl-0
-          ${isLeft ? "md:pr-12" : "md:pl-12"}
-        `}
+        className={`w-full pl-6 md:w-[45%] md:pl-0 ${
+          isLeft ? "md:pr-12" : "md:pl-12"
+        }`}
       >
         <JourneyCard item={item} />
       </div>
 
-      <div className="absolute left-4 top-6 -translate-x-1/2 md:left-1/2">
+      <div className="absolute left-2 top-6 -translate-x-1/2 md:left-1/2">
         <div className="h-3 w-3 rounded-full bg-white shadow-[0_0_12px_rgba(255,255,255,0.7)]" />
       </div>
     </div>

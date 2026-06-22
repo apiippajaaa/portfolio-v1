@@ -1,8 +1,10 @@
 "use client";
 
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
+import { CAROUSEL_SPRING } from "@/lib/motion/transitions";
 import type { SkillCategory } from "@/types/skills";
 
 import { SkillCard } from "./SkillCard";
@@ -70,7 +72,9 @@ export function SkillsMobile({ categories }: Props) {
       setActive(closestIndex);
     };
 
-    container.addEventListener("scroll", handleScroll);
+    container.addEventListener("scroll", handleScroll, {
+      passive: true,
+    });
 
     return () => {
       container.removeEventListener("scroll", handleScroll);
@@ -80,40 +84,47 @@ export function SkillsMobile({ categories }: Props) {
   return (
     <div className="lg:hidden">
       <div className="relative">
-        <button
-          onClick={prev}
-          disabled={active === 0}
-          className="absolute left-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/40 backdrop-blur-md transition-all duration-300 hover:bg-white/10 disabled:opacity-0"
-        >
-          <ChevronLeft size={18} className="text-white/80" />
-        </button>
+        <div className="mx-6">
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            onClick={prev}
+            disabled={active === 0}
+            className="absolute left-4 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/40 backdrop-blur-md disabled:pointer-events-none disabled:opacity-0"
+          >
+            <ChevronLeft size={18} className="text-white/80" />
+          </motion.button>
 
-        <button
-          onClick={next}
-          disabled={active === categories.length - 1}
-          className="absolute right-0 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/40 backdrop-blur-md transition-all duration-300 hover:bg-white/10 disabled:opacity-0"
-        >
-          <ChevronRight size={18} className="text-white/80" />
-        </button>
+          <motion.button
+            whileTap={{ scale: 0.9 }}
+            whileHover={{ scale: 1.05 }}
+            onClick={next}
+            disabled={active === categories.length - 1}
+            className="absolute right-4 top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-black/40 backdrop-blur-md disabled:pointer-events-none disabled:opacity-0"
+          >
+            <ChevronRight size={18} className="text-white/80" />
+          </motion.button>
+        </div>
 
         <div
           ref={containerRef}
-          className="flex snap-x snap-mandatory overflow-x-auto scroll-smooth px-8 scrollbar-hide"
+          className="scrollbar-hidden flex snap-x snap-mandatory overflow-x-auto scroll-smooth px-8"
         >
           {categories.map((category, index) => (
-            <div
+            <motion.div
               key={category.title}
               ref={(el) => {
                 cardRefs.current[index] = el;
               }}
-              className={`flex w-full shrink-0 snap-center justify-center transition-all duration-500 ${
-                active === index
-                  ? "scale-100 opacity-100"
-                  : "scale-[0.96] opacity-60"
-              }`}
+              animate={{
+                scale: active === index ? 1 : 0.96,
+                opacity: active === index ? 1 : 0.6,
+              }}
+              transition={CAROUSEL_SPRING}
+              className="flex w-full shrink-0 snap-center justify-center"
             >
               <SkillCard category={category} mobile />
-            </div>
+            </motion.div>
           ))}
         </div>
 
@@ -122,12 +133,17 @@ export function SkillsMobile({ categories }: Props) {
             <button
               key={index}
               onClick={() => scrollToCard(index)}
-              className={`rounded-full transition-all duration-300 ${
-                active === index
-                  ? "h-1.5 w-6 bg-white"
-                  : "h-1.5 w-1.5 bg-white/25"
-              }`}
-            />
+              className="relative h-2"
+            >
+              <motion.div
+                animate={{
+                  width: active === index ? 24 : 6,
+                  opacity: active === index ? 1 : 0.35,
+                }}
+                transition={CAROUSEL_SPRING}
+                className="h-1.5 rounded-full bg-white"
+              />
+            </button>
           ))}
         </div>
       </div>

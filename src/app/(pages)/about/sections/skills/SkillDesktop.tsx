@@ -1,9 +1,14 @@
 "use client";
 
-import { useReveal } from "@/hooks/useReveal";
+import { motion } from "framer-motion";
+
 import type { SkillCategory } from "@/types/skills";
 
+import { fadeUp } from "@/lib/motion/variants";
+import { SOFT_VIEWPORT } from "@/lib/motion/viewport";
+
 import { SkillCard } from "./SkillCard";
+import { hoverFloat, tapScale } from "@/lib/motion/hover";
 
 type Props = {
   categories: SkillCategory[];
@@ -15,20 +20,21 @@ type SkillItemProps = {
 };
 
 function SkillItem({ category, index }: SkillItemProps) {
-  const { ref, visible } = useReveal();
-
   return (
-    <div
-      ref={ref}
-      style={{
-        transitionDelay: `${index * 80}ms`,
+    <motion.div
+      variants={fadeUp}
+      initial="hidden"
+      whileInView="visible"
+      viewport={SOFT_VIEWPORT}
+      transition={{
+        delay: index * 0.08,
       }}
-      className={`transition-all duration-700 ease-out ${
-        visible ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"
-      } hover:-translate-y-1.5`}
+      whileHover={hoverFloat}
+      whileTap={tapScale}
+      className="will-change-transform"
     >
       <SkillCard category={category} />
-    </div>
+    </motion.div>
   );
 }
 

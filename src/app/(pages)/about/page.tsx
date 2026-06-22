@@ -18,10 +18,12 @@ export default function About() {
           <AboutHeader />
         </section>
         <Skills />
-        <Journey />
-        <Philosophy />
-        <GetInTouch />
-        <Footer />
+        <section className=" px-6">
+          <Journey />
+          <Philosophy />
+          <GetInTouch />
+          <Footer />
+        </section>
       </section>
     </>
   );

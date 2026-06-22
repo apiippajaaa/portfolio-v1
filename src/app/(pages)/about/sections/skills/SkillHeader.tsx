@@ -1,6 +1,6 @@
 export function SkillsHeader() {
   return (
-    <header className="mb-12 text-center md:mb-16">
+    <header className="mb-12 text-center md:mb-16  px-6">
       <p className="text-[11px] uppercase tracking-[0.35em] text-yellow-400">
         SKILLS
       </p>
