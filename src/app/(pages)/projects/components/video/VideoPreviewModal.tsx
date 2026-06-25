@@ -4,89 +4,113 @@ import { useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 
-type Props = {
+type VideoPreviewModalProps = {
   videoUrl: string | null;
   onClose: () => void;
 };
 
-export default function VideoPreviewModal({ videoUrl, onClose }: Props) {
+const BACKDROP_ANIMATION = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  exit: { opacity: 0 },
+};
+
+const MODAL_ANIMATION = {
+  initial: {
+    opacity: 0,
+    scale: 0.96,
+    y: 24,
+  },
+  animate: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+  },
+  exit: {
+    opacity: 0,
+    scale: 0.96,
+    y: 24,
+  },
+};
+
+const BACKDROP_TRANSITION = {
+  duration: 0.2,
+};
+
+const MODAL_TRANSITION = {
+  duration: 0.25,
+  ease: "easeOut" as const,
+};
+
+export default function VideoPreviewModal({
+  videoUrl,
+  onClose,
+}: VideoPreviewModalProps) {
   useEffect(() => {
     if (!videoUrl) return;
 
-    const handleKeyDown = (event: KeyboardEvent) => {
+    const previousOverflow = document.body.style.overflow;
+
+    const handleEscapeKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
         onClose();
       }
     };
 
     document.body.style.overflow = "hidden";
-
-    window.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("keydown", handleEscapeKey);
 
     return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleEscapeKey);
     };
   }, [videoUrl, onClose]);
 
   return (
     <AnimatePresence>
-      {videoUrl && (
+      {videoUrl ? (
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
+          {...BACKDROP_ANIMATION}
+          transition={BACKDROP_TRANSITION}
           onClick={onClose}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Video preview"
           className="fixed inset-0 z-9999 bg-black/80 backdrop-blur-xl"
         >
-          <div className="flex h-full w-fullitems-center justify-centerp-4 md:p-8">
+          <div className="flex min-h-dvh items-center justify-center p-3 sm:p-4 md:p-6 lg:p-8">
             <button
               type="button"
-              aria-label="Close video"
+              aria-label="Close preview"
               onClick={onClose}
-              className="absolute right-4 top-4 z-30 flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20"
+              className="absolute top-3 right-3 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white backdrop-blur-md transition-colors duration-200 hover:bg-white/20 sm:top-4 sm:right-4 sm:h-11 sm:w-11"
             >
               <X size={18} />
             </button>
 
             <motion.div
-              initial={{
-                opacity: 0,
-                scale: 0.98,
-                y: 10,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-                y: 0,
-              }}
-              exit={{
-                opacity: 0,
-                scale: 0.98,
-              }}
-              transition={{
-                duration: 0.25,
-                ease: "easeOut",
-              }}
-              onClick={(e) => e.stopPropagation()}
-              className="w-full max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-black shadow-2xl"
+              {...MODAL_ANIMATION}
+              transition={MODAL_TRANSITION}
+              onClick={(event) => event.stopPropagation()}
+              className=" w-full max-w-7xl overflow-hidden rounded-2xl border border-white/10 bg-black shadow-2xl sm:rounded-3xl"
             >
-              <div className="aspect-video">
+              <div className="aspect-video max-h-[85vh] w-full">
                 <video
                   autoPlay
                   controls
                   playsInline
                   preload="metadata"
-                  className="h-full w-full"
+                  controlsList="nodownload"
+                  className="h-full w-full object-contain"
                 >
                   <source src={videoUrl} type="video/mp4" />
+                  Your browser does not support video playback.
                 </video>
               </div>
             </motion.div>
           </div>
         </motion.div>
-      )}
+      ) : null}
     </AnimatePresence>
   );
 }

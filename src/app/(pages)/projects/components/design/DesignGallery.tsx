@@ -15,7 +15,7 @@ export default function DesignGallery({ projects }: Props) {
 
   return (
     <>
-      <div className="columns-1 gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
+      <div className="columns-2 gap-4 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5">
         {projects.map((project, index) => (
           <button
             key={project.id}

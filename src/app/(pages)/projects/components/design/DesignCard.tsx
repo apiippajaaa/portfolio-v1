@@ -38,18 +38,7 @@ export default function DesignCard({ projects }: Props) {
 
   return (
     <>
-      {/* Masonry Grid */}
-      <div
-        className="
-          columns-2
-          sm:columns-2
-          md:columns-3
-          lg:columns-4
-          xl:columns-5
-          gap-4
-          [column-fill:_balance]
-        "
-      >
+      <div className="columns-2 sm:columns-2 md:columns-3 lg:columns-4 xl:columns-5 gap-4 [column-fill:balance]">
         {projects.map((project) => (
           <motion.div
             key={project.id}
@@ -65,33 +54,15 @@ export default function DesignCard({ projects }: Props) {
             <button
               type="button"
               onClick={() => setSelectedImage(project.cover)}
-              className="
-                group
-                block
-                w-full
-                cursor-zoom-in
-                overflow-hidden
-                rounded-2xl
-              "
+              className="group block w-full cursor-zoom-in overflow-hidden rounded-2xl"
             >
               <Image
                 src={project.cover}
                 alt={`Design ${project.id}`}
                 width={1200}
                 height={1600}
-                sizes="
-                  (max-width: 640px) 50vw,
-                  (max-width: 1024px) 33vw,
-                  20vw
-                "
-                className="
-                  h-auto
-                  w-full
-                  object-cover
-                  transition-transform
-                  duration-500
-                  group-hover:scale-[1.03]
-                "
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 20vw"
+                className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                 placeholder="blur"
                 blurDataURL={project.cover}
               />
@@ -110,17 +81,7 @@ export default function DesignCard({ projects }: Props) {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               onClick={closePreview}
-              className="
-                fixed
-                inset-0
-                z-[9999]
-                flex
-                items-center
-                justify-center
-                bg-black/90
-                p-4
-                backdrop-blur-md
-              "
+              className="fixed inset-0 z-9999 flex items-center justify-center bg-black/90 p-4 backdrop-blur-md"
             >
               <motion.div
                 initial={{ scale: 0.96, opacity: 0 }}
@@ -136,35 +97,14 @@ export default function DesignCard({ projects }: Props) {
                   width={2000}
                   height={3000}
                   priority
-                  className="
-                    max-h-[95vh]
-                    max-w-[95vw]
-                    w-auto
-                    rounded-2xl
-                    object-contain
-                  "
+                  className="max-h-[95vh] max-w-[95vw] w-auto rounded-2xl object-contain"
                 />
 
                 <button
                   type="button"
                   onClick={closePreview}
                   aria-label="Close preview"
-                  className="
-                    absolute
-                    right-3
-                    top-3
-                    flex
-                    h-10
-                    w-10
-                    items-center
-                    justify-center
-                    rounded-full
-                    bg-black/50
-                    text-white
-                    backdrop-blur
-                    transition
-                    hover:bg-black/70
-                  "
+                  className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur transition hover:bg-black/70"
                 >
                   <X size={18} />
                 </button>

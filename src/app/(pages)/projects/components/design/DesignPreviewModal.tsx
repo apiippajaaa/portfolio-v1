@@ -108,9 +108,9 @@ export default function DesignPreviewModal({
               e.stopPropagation();
               handlePrev();
             }}
-            className="absolute left-4 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 active:scale-95 md:flex cursor-pointer"
+            className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-40 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-xl transition-all duration-200 hover:bg-white/20 active:scale-95 cursor-pointer"
           >
-            <ChevronLeft size={22} />
+            <ChevronLeft size={24} />
           </button>
 
           <button
@@ -120,13 +120,24 @@ export default function DesignPreviewModal({
               e.stopPropagation();
               handleNext();
             }}
-            className="absolute right-4 top-1/2 z-30 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/10 bg-white/10 text-white backdrop-blur-md transition-all duration-200 hover:bg-white/20 active:scale-95 md:flex cursor-pointer"
+            className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-40 flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full border border-white/10 bg-black/40 text-white backdrop-blur-xl transition-all duration-200 hover:bg-white/20 active:scale-95 cursor-pointer"
           >
-            <ChevronRight size={22} />
+            <ChevronRight size={24} />
           </button>
 
           <motion.div
             key={project.cover}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            onDragEnd={(_, info) => {
+              if (info.offset.x > 100) {
+                handlePrev();
+              }
+
+              if (info.offset.x < -100) {
+                handleNext();
+              }
+            }}
             initial={{
               opacity: 0,
               scale: 0.97,

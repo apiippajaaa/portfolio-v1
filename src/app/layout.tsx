@@ -4,6 +4,7 @@ import "./globals.css";
 import Background from "@/components/layouts/background/Background";
 import Navbar from "@/components/layouts/navbar/Navbar";
 import ChatWithAi from "@/components/ai/ChatWithAi";
+import BackToTopButton from "@/components/ui/BackToTopButton";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
           <Navbar />
           <main>{children}</main>
         </div>
+        <BackToTopButton />
         <ChatWithAi />
       </body>
     </html>
