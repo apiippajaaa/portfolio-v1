@@ -3,134 +3,88 @@ import type { SkillCategory } from "@/types/skills";
 export const skillCategories: SkillCategory[] = [
   {
     title: "Frontend",
-
-    description:
-      "Building fast, responsive, and user-focused modern interfaces.",
-
+    description: "Building modern and responsive web interfaces.",
     skills: [
       "Next.js",
-      "React.js",
+      "React",
       "TypeScript",
-      "JavaScript (ES6+)",
       "Tailwind CSS",
       "ShadCN UI",
       "Framer Motion",
-      "Zustand",
-      "Redux Toolkit",
-      "React Query / TanStack Query",
-      "Axios / Fetch API",
-      "Vite",
-      "Webpack",
-      "HTML5",
-      "CSS3 / SCSS",
-      "Responsive Design",
-      "Web Performance Optimization",
-      "SEO Basics",
+    ],
+    tools: [
+      "Git",
+      "GitHub",
+      "Vercel",
     ],
   },
 
   {
     title: "Backend",
-
-    description:
-      "Developing efficient, scalable systems and modern API architectures.",
-
+    description: "Developing scalable APIs and backend systems.",
     skills: [
       "Laravel",
-      "PHP",
-      "CodeIgniter",
       "Node.js",
       "Express.js",
-      "Go (Golang)",
+      "PHP",
       "REST API",
-      "GraphQL",
-      "Authentication (JWT / OAuth)",
+    ],
+    tools: [
+      "Postman",
+      "Docker",
       "MySQL",
       "PostgreSQL",
-      "MongoDB",
-      "Prisma ORM",
-      "Firebase",
-      "Redis (Caching)",
-      "Microservices Basics",
-      "API Security & Rate Limiting",
+      "Prisma",
     ],
   },
 
   {
-    title: "Tools & DevOps",
-
-    description:
-      "Managing development workflows, deployment, and collaboration efficiently.",
-
+    title: "AI",
+    description: "Integrating AI capabilities into web applications.",
     skills: [
-      "Git",
-      "GitHub",
-      "GitHub Actions (CI/CD)",
-      "Postman",
-      "Docker",
-      "Vercel",
-      "Netlify",
-      "Google Cloud Platform",
-      "AWS (Basic)",
-      "Linux / VPS",
-      "Nginx",
-      "Environment Management (.env)",
-      "Deployment Automation",
+      "Prompt Engineering",
+      "LLM Integration",
+      "RAG",
+    ],
+    tools: [
+      "OpenAI API",
+      "Gemini API",
+      "Groq API",
     ],
   },
+
 
   {
     title: "Design",
-
-    description:
-      "Designing visuals for branding, UI, and digital experiences.",
-
-    skills: [
-      "Figma",
-      "UI/UX Design",
-      "Design Systems",
-      "Wireframing & Prototyping",
-      "Adobe Photoshop",
+    description: "Designing intuitive interfaces and visual assets.",
+    tools: [
+      "Corel Draw",
       "Adobe Illustrator",
-      "CorelDRAW",
+      "Adobe Photoshop",
+      "Figma",
       "Canva",
-      "Typography & Layout",
-      "Color Theory",
     ],
   },
 
   {
-    title: "Video & Motion",
-
-    description:
-      "Producing video and motion content for storytelling and digital media.",
-
-    skills: [
+    title: "Video",
+    description: "Creating engaging video and motion content.",
+    tools: [
       "Adobe Premiere Pro",
       "After Effects",
+      "CapCut",
       "DaVinci Resolve",
-      "Motion Graphics",
-      "Video Editing",
-      "Color Grading",
-      "Sound Design Basics",
-      "Storyboarding",
     ],
   },
 
   {
-    title: "Mobile Development",
-
-    description:
-      "Building cross-platform mobile applications with optimal performance.",
-
+    title: "Mobile",
+    description: "Building cross-platform mobile applications.",
     skills: [
       "Flutter",
       "Dart",
-      "Android Studio",
-      "REST API Integration",
-      "State Management (Provider / Riverpod)",
-      "Firebase Integration",
-      "App Deployment (Play Store)",
+      "Firebase",
+      "REST API",
     ],
   },
 ];
